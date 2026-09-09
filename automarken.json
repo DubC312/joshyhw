@@ -1,0 +1,212 @@
+[
+  {
+    "id": 1,
+    "name": "Volkswagen",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Volkswagen%20-%20Logo.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Volkswagen%20-%20Logo.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 2,
+    "name": "BMW",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/BMW.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:BMW.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 3,
+    "name": "Mercedes-Benz",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Mercedes-Benz%20logo.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Mercedes-Benz%20logo.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 4,
+    "name": "Audi",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Audi%20logo.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Audi%20logo.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 5,
+    "name": "Toyota",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Toyota%20Logo.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Toyota%20Logo.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 6,
+    "name": "Ford",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Ford%20logo.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Ford%20logo.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 7,
+    "name": "Opel",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Opel%20logo.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Opel%20logo.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 8,
+    "name": "Honda",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Honda%20Logo.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Honda%20Logo.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 9,
+    "name": "Nissan",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Nissan%20logo.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Nissan%20logo.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 10,
+    "name": "Mazda",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Mazda%20logo.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Mazda%20logo.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 11,
+    "name": "Mitsubishi",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Mitsubishi%20logo.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Mitsubishi%20logo.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 12,
+    "name": "Hyundai",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Hyundai%20logo.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Hyundai%20logo.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 13,
+    "name": "Kia",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/KIA%20logo.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:KIA%20logo.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 14,
+    "name": "Renault",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Renault%20logo.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Renault%20logo.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 15,
+    "name": "Peugeot",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Peugeot%20Logo.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Peugeot%20Logo.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 16,
+    "name": "Citroën",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Citro%C3%ABn-Logo.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Citro%C3%ABn-Logo.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 17,
+    "name": "Fiat",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Fiat%20logo.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Fiat%20logo.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 18,
+    "name": "Volvo",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Volvo%20logo.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Volvo%20logo.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 19,
+    "name": "SEAT",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/SEAT%20Logo%20from%202017.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:SEAT%20Logo%20from%202017.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 20,
+    "name": "Tesla",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Tesla%20Motors.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Tesla%20Motors.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 21,
+    "name": "Lamborghini",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Lamborghini%20-%20logo%20wordmark%2Bpayoff%20(Italy,%201963-).svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Lamborghini%20-%20logo%20wordmark%2Bpayoff%20(Italy,%201963-).svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 22,
+    "name": "Maserati",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Maserati%20logo%202.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Maserati%20logo%202.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 23,
+    "name": "Jaguar",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Jaguar%20icon.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Jaguar%20icon.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 24,
+    "name": "Land Rover",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Land%20Rover%202023.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Land%20Rover%202023.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 25,
+    "name": "Jeep",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Jeep.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Jeep.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 26,
+    "name": "Chevrolet",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Chevrolet.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Chevrolet.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 27,
+    "name": "Subaru",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Subaru%20Logo%202024.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Subaru%20Logo%202024.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 28,
+    "name": "Suzuki",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Suzuki%20logo%202025%20(symbol).svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Suzuki%20logo%202025%20(symbol).svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 29,
+    "name": "MINI",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/MINI%20logo.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:MINI%20logo.svg",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": 30,
+    "name": "Lexus",
+    "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/Lexus.svg",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Lexus.svg",
+    "source": "Wikimedia Commons"
+  }
+]

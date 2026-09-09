@@ -1,0 +1,9 @@
+{
+  "name": "Vorschule-Entdecker",
+  "short_name": "Entdecker",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#6c5ce7",
+  "theme_color": "#6c5ce7",
+  "lang": "de"
+}

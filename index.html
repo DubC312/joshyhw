@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Vorschule-Entdecker</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Vorschule-Entdecker">
+<meta name="theme-color" content="#6c5ce7">
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+:root{--purple:#6c5ce7;--mint:#21c7a8;--ink:#27314b;--paper:#fffffff2;--good:#32b44a}
+*{box-sizing:border-box} body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,sans-serif;color:var(--ink);background:linear-gradient(145deg,#7c5cff,#27c9ad);padding:max(12px,env(safe-area-inset-top)) 12px max(16px,env(safe-area-inset-bottom))}
+button{font:inherit;touch-action:manipulation}.app{max-width:960px;margin:auto}.hidden{display:none!important}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}.brand{background:#ffffffdd;padding:10px 14px;border-radius:20px;font-weight:900}
+.round{border:0;background:white;border-radius:20px;min-width:72px;min-height:62px;font-size:30px;box-shadow:0 10px 28px #0002}
+.panel{background:var(--paper);border-radius:28px;padding:18px;box-shadow:0 18px 50px #0002}.title{text-align:center;font-size:clamp(28px,6vw,44px);font-weight:1000;margin:4px 0 18px}
+.homegrid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.mode{border:0;border-radius:28px;min-height:180px;color:white;font-size:clamp(24px,5vw,36px);font-weight:1000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;box-shadow:0 12px 28px #0003}.mode span:first-child{font-size:clamp(58px,13vw,100px)}
+.colors{background:linear-gradient(145deg,#ff595e,#ffca3a)}.numbers{background:linear-gradient(145deg,#1982c4,#6a4c93)}.recognize{background:linear-gradient(145deg,#8ac926,#2ec4b6)}.memory{background:linear-gradient(145deg,#ff924c,#ff4d6d)}
+.gamehead{display:flex;justify-content:space-between;align-items:center;gap:10px}.gametitle{font-size:clamp(24px,5vw,36px);font-weight:1000}
+.dots{display:flex;justify-content:center;gap:8px;margin:14px 0}.dot{width:18px;height:18px;border-radius:50%;background:#d9ddec}.dot.on{background:var(--good)}
+.prompt{text-align:center;min-height:82px;display:flex;align-items:center;justify-content:center;font-size:clamp(34px,8vw,60px);font-weight:1000}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:15px}.choice{border:0;border-radius:26px;background:white;min-height:165px;font-size:clamp(42px,11vw,88px);font-weight:1000;box-shadow:0 10px 25px #0002;display:grid;place-items:center}.swatch{width:82%;height:115px;border-radius:24px;border:6px solid white;box-shadow:0 5px 16px #0002}
+.wrong{animation:wiggle .38s ease}.hint{outline:7px solid #7ee38c;animation:pulse .9s infinite}@keyframes wiggle{25%{transform:translateX(-12px)}50%{transform:translateX(10px)}75%{transform:translateX(-7px)}}@keyframes pulse{50%{transform:scale(1.04)}}
+.logo{width:118px;height:118px;border:5px solid #dce1ef;border-radius:24px;background:#f5f7fb;display:grid;place-items:center;font-size:32px;font-weight:1000}.vw,.bmw,.mercedes{border-radius:50%}.audi{font-size:42px;letter-spacing:-7px}
+.memtools{display:flex;justify-content:center;gap:10px;margin-bottom:14px}.memsize{border:0;border-radius:16px;padding:12px 16px;font-weight:900;background:#dde2f6}.memsize.active{background:var(--purple);color:white}
+.memgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.memgrid.eight{grid-template-columns:repeat(4,1fr)}.memcard{border:0;border-radius:22px;aspect-ratio:1;background:linear-gradient(145deg,#5c4acb,#927eef);color:white;font-size:clamp(34px,9vw,70px);font-weight:1000}.memcard.open,.memcard.done{background:white;color:var(--ink)}.memcard.done{outline:6px solid #84df91}
+.overlay{position:fixed;inset:0;background:#111827e8;display:grid;place-items:center;padding:16px;z-index:99}.overlay[hidden]{display:none}.rewardbox{width:min(420px,94vw);background:white;border-radius:30px;padding:20px;text-align:center}.rewardpic{aspect-ratio:1;max-width:280px;margin:12px auto;border-radius:24px;background:linear-gradient(145deg,#eef0ff,#fff1c6);display:grid;place-items:center;font-size:100px}.rewardname{font-size:28px;font-weight:1000}.continue{margin-top:14px;border:0;border-radius:18px;background:var(--purple);color:white;padding:14px 18px;font-weight:1000;font-size:20px}
+.praise{position:fixed;left:50%;top:18%;transform:translate(-50%,-50%);z-index:120;background:white;border-radius:22px;padding:12px 18px;font-size:clamp(26px,7vw,46px);font-weight:1000;box-shadow:0 12px 35px #0004}.praise[hidden]{display:none}
+.albumtabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:12px 0}.albumtab{border:0;border-radius:16px;padding:12px 15px;font-weight:900}.albumtab.active{background:var(--purple);color:white}.albumgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}.albumcard{background:white;border-radius:22px;padding:13px;text-align:center;box-shadow:0 8px 20px #0002}.albumcard .pic{aspect-ratio:1;border-radius:18px;background:#f2f3ff;display:grid;place-items:center;font-size:70px}.albumcard .name{font-weight:1000;margin-top:7px}.locked{opacity:.35;filter:grayscale(1)}
+@media(max-width:620px){.mode{min-height:145px}.choice{min-height:140px}}
+
+/* Monster-Truck-Belohnungen + Automarken */
+.choice.logochoice{padding:12px;background:#fff;overflow:hidden}
+.choice.logochoice img{width:88%;height:120px;object-fit:contain;display:block}
+.choice.logochoice .logoFallback{font-size:58px}
+.rewardpic.monstertruck{
+  aspect-ratio:4/3;
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 20% 20%,#ffd43b 0 5%,transparent 6%),
+    linear-gradient(160deg,#87ceeb 0 53%,#65b83b 53% 72%,#6a452b 72%);
+  border:7px solid #27212f;
+}
+.rewardpic.monstertruck::before{
+  content:"🏁";
+  position:absolute;right:12px;top:10px;font-size:42px;opacity:.9
+}
+.mt-hero{font-size:108px;line-height:1;filter:drop-shadow(0 8px 2px #0004);transform:rotate(-4deg)}
+.mt-meta{font-size:15px;font-weight:900;margin-top:5px;color:#5a5265}
+.albumtabs{max-height:120px;overflow:auto}
+.albumcard .pic.monsterpic{
+  aspect-ratio:4/3;
+  background:linear-gradient(#8dd5ff 0 55%,#68c44d 55% 72%,#805332 72%);
+  position:relative;overflow:hidden
+}
+.albumcard .pic.monsterpic::after{
+  content:"🛻";font-size:72px;filter:drop-shadow(0 6px 2px #0004);transform:rotate(-5deg)
+}
+.albumcard .year{font-size:13px;font-weight:800;color:#6f7180;margin-top:3px}
+.sourcehint{font-size:12px;color:#73788b;text-align:center;margin-top:10px}
+
+</style>
+</head>
+<body>
+<div class="app">
+<div class="top"><div class="brand">🚀 Vorschule-Entdecker 🚀</div><button id="repeatTop" class="round" aria-label="Wiederholen">🔊</button></div>
+
+<section id="home" class="panel">
+<div class="title">Was möchtest du spielen?</div>
+<div class="homegrid">
+<button class="mode colors" data-mode="colors"><span>🎨</span><span>Farben</span></button>
+<button class="mode numbers" data-mode="numbers"><span>🔢</span><span>Zahlen</span></button>
+<button class="mode recognize" data-mode="recognize"><span>👀</span><span>Erkennen</span></button>
+<button class="mode memory" data-mode="memory"><span>🧠</span><span>Merken</span></button>
+</div>
+<div style="display:flex;justify-content:center;margin-top:16px"><button id="albumButton" class="round" style="min-width:180px;font-size:22px">🏆 Album</button></div>
+</section>
+
+<section id="game" class="panel hidden">
+<div class="gamehead"><button id="homeButton" class="round">🏠</button><div id="gameTitle" class="gametitle"></div><button id="repeatGame" class="round">🔊</button></div>
+<div id="dots" class="dots"></div><div id="prompt" class="prompt"></div>
+<div id="choices" class="choices"></div>
+<div id="memoryArea" class="hidden"><div class="memtools"><button class="memsize active" data-size="6">6</button><button class="memsize" data-size="8">8</button></div><div id="memoryGrid" class="memgrid"></div></div>
+</section>
+
+<section id="album" class="panel hidden">
+<div class="gamehead"><button id="albumHome" class="round">🏠</button><div class="gametitle">🏆 Album</div><button id="repeatAlbum" class="round">🔊</button></div>
+<div id="albumTabs" class="albumtabs"></div>
+<div id="albumGrid" class="albumgrid"></div>
+<div class="sourcehint">Monster-Truck-Daten aus deiner JSON-Datei.</div>
+</section>
+</div>
+
+<div id="rewardOverlay" class="overlay" hidden><div class="rewardbox"><div style="font-size:34px;font-weight:1000">🎉 Belohnung!</div><div id="rewardPic" class="rewardpic"></div><div id="rewardName" class="rewardname"></div><button id="continueButton" class="continue">Weiter</button></div></div>
+<div id="praise" class="praise" hidden></div>
+
+<script>
+const $=id=>document.getElementById(id),
+      pick=a=>a[Math.floor(Math.random()*a.length)],
+      shuffle=a=>[...a].sort(()=>Math.random()-.5);
+
+let mode='colors', solved=0, lastSpeech='', current=null,
+    memorySize=6, openCards=[], locked=false;
+let monsterTrucks=[], carBrands=[], activeAlbumYear=null;
+
+const owned=JSON.parse(localStorage.getItem('pre_mt_owned')||'[]');
+
+const colors=[
+  ['rot','#ef3340'],['blau','#2f6fed'],['gelb','#ffd43b'],
+  ['grün','#37b24d'],['orange','#ff922b'],['lila','#845ef7']
+];
+
+async function loadData(){
+  const [mt, brands]=await Promise.all([
+    fetch('monster-trucks.json',{cache:'no-store'}).then(r=>r.json()),
+    fetch('automarken.json',{cache:'no-store'}).then(r=>r.json())
+  ]);
+  monsterTrucks=mt;
+  carBrands=brands;
+}
+
+function speak(t){
+  lastSpeech=t;
+  if(!('speechSynthesis'in window))return;
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang='de-DE';u.rate=.82;u.pitch=1.04;
+  speechSynthesis.speak(u);
+}
+function repeat(){if(lastSpeech)speak(lastSpeech)}
+['repeatTop','repeatGame','repeatAlbum'].forEach(id=>$(id).onclick=repeat);
+
+function show(id){
+  ['home','game','album'].forEach(x=>$(x).classList.toggle('hidden',x!==id));
+}
+function dots(){
+  $('dots').innerHTML='';
+  for(let i=0;i<5;i++){
+    const d=document.createElement('div');
+    d.className='dot'+(i<solved?' on':'');
+    $('dots').appendChild(d);
+  }
+}
+function praise(){
+  const t=pick(['Super!','Toll gemacht!','Klasse!','Prima!','Sehr gut!']);
+  $('praise').textContent='⭐ '+t;
+  $('praise').hidden=false;
+  speak(t);
+  setTimeout(()=>$('praise').hidden=true,1200);
+}
+function success(){
+  solved++;dots();praise();
+  if(solved>=5){
+    solved=0;
+    setTimeout(showReward,900);
+    return true;
+  }
+  return false;
+}
+function fail(btn,right){
+  btn.classList.remove('wrong');void btn.offsetWidth;btn.classList.add('wrong');
+  current.errors++;
+  if(current.errors>=2&&right)right.classList.add('hint');
+  speak(current.errors>=2?'Schau genau. Das richtige Bild hilft dir.':'Probier es noch einmal.');
+}
+function renderButtons(items,correctIndex,spoken){
+  current={errors:0};
+  $('prompt').textContent='👂';
+  speak(spoken);
+  const w=$('choices');w.innerHTML='';
+  items.forEach((html,i)=>{
+    const b=document.createElement('button');
+    b.className='choice';
+    b.innerHTML=html;
+    w.appendChild(b);
+    b.onclick=()=>{
+      if(i===correctIndex){
+        b.classList.add('hint');
+        if(!success())setTimeout(nextQuestion,1300);
+      }else fail(b,w.children[correctIndex]);
+    };
+  });
+}
+function colorQ(){
+  const target=pick(colors),
+        others=shuffle(colors.filter(x=>x[0]!==target[0])).slice(0,3),
+        all=shuffle([target,...others]);
+  renderButtons(
+    all.map(c=>`<div class="swatch" style="background:${c[1]}"></div>`),
+    all.indexOf(target),
+    'Tippe auf '+target[0]+'.'
+  );
+}
+function numWord(n){return ['null','einem','zwei','drei','vier','fünf'][n]}
+function numberQ(){
+  const n=1+Math.floor(Math.random()*5);
+  if(Math.random()<.5){
+    const vals=shuffle([n,...shuffle([1,2,3,4,5].filter(x=>x!==n)).slice(0,3)]);
+    current={errors:0};
+    $('prompt').innerHTML=`<div>${'🚗'.repeat(n)}</div>`;
+    speak('Wie viele Autos siehst du?');
+    const w=$('choices');w.innerHTML='';
+    vals.forEach(x=>{
+      const b=document.createElement('button');b.className='choice';b.textContent=x;w.appendChild(b);
+      b.onclick=()=>{
+        if(x===n){
+          b.classList.add('hint');
+          if(!success())setTimeout(nextQuestion,1300);
+        }else fail(b,[...w.children].find(z=>z.textContent==n));
+      };
+    });
+  }else{
+    const vals=shuffle([n,...shuffle([1,2,3,4,5].filter(x=>x!==n)).slice(0,3)]);
+    renderButtons(
+      vals.map(x=>`<div>${'⚽'.repeat(x)}</div>`),
+      vals.indexOf(n),
+      'Finde die Gruppe mit '+numWord(n)+' Bällen.'
+    );
+  }
+}
+
+/* ERKENNEN: immer eine Automarke hören und eines von vier Logos auswählen */
+function recognizeQ(){
+  if(carBrands.length<4){
+    $('prompt').textContent='🚗';
+    speak('Die Automarken werden noch geladen.');
+    setTimeout(recognizeQ,500);
+    return;
+  }
+  const target=pick(carBrands);
+  const others=shuffle(carBrands.filter(x=>x.id!==target.id)).slice(0,3);
+  const all=shuffle([target,...others]);
+  const correctIndex=all.findIndex(x=>x.id===target.id);
+
+  current={errors:0};
+  $('prompt').textContent='👂';
+  speak(target.name);
+
+  const w=$('choices');w.innerHTML='';
+  all.forEach((brand,i)=>{
+    const b=document.createElement('button');
+    b.className='choice logochoice';
+    b.setAttribute('aria-label','Automarken-Symbol');
+    b.innerHTML=`<img src="${brand.logo}" alt="" referrerpolicy="no-referrer"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="logoFallback" style="display:none">🚘</div>`;
+    w.appendChild(b);
+    b.onclick=()=>{
+      if(i===correctIndex){
+        b.classList.add('hint');
+        if(!success())setTimeout(nextQuestion,1300);
+      }else fail(b,w.children[correctIndex]);
+    };
+  });
+}
+
+function nextQuestion(){
+  if(mode==='colors')colorQ();
+  if(mode==='numbers')numberQ();
+  if(mode==='recognize')recognizeQ();
+}
+
+document.querySelectorAll('.mode').forEach(b=>b.onclick=()=>{
+  mode=b.dataset.mode;solved=0;show('game');
+  $('gameTitle').textContent={
+    colors:'🎨 Farben',numbers:'🔢 Zahlen',recognize:'🚗 Automarken',memory:'🧠 Merken'
+  }[mode];
+  dots();
+  if(mode==='memory'){
+    $('choices').classList.add('hidden');
+    $('memoryArea').classList.remove('hidden');
+    startMemory();
+  }else{
+    $('choices').classList.remove('hidden');
+    $('memoryArea').classList.add('hidden');
+    nextQuestion();
+  }
+});
+
+$('homeButton').onclick=()=>{show('home');speak('Was möchtest du spielen?')};
+$('albumHome').onclick=$('homeButton').onclick;
+
+document.querySelectorAll('.memsize').forEach(b=>b.onclick=()=>{
+  memorySize=Number(b.dataset.size);
+  document.querySelectorAll('.memsize').forEach(x=>x.classList.toggle('active',x===b));
+  startMemory();
+});
+function startMemory(){
+  openCards=[];locked=false;current={errors:0};
+  const pool=shuffle(['⚽','🚗','⭐','🍎','🐶','🌈','🦖','🎈']).slice(0,memorySize/2),
+        deck=shuffle(pool.flatMap((x,i)=>[{k:i,e:x},{k:i,e:x}]));
+  const g=$('memoryGrid');
+  g.className='memgrid'+(memorySize===8?' eight':'');
+  g.innerHTML='';
+  deck.forEach(c=>{
+    const b=document.createElement('button');
+    b.className='memcard';b.dataset.k=c.k;b.dataset.e=c.e;b.textContent='?';
+    g.appendChild(b);b.onclick=()=>flip(b);
+  });
+  $('prompt').textContent='🧠';speak('Finde zwei gleiche Bilder.');
+}
+function flip(b){
+  if(locked||b.classList.contains('open')||b.classList.contains('done'))return;
+  b.classList.add('open');b.textContent=b.dataset.e;openCards.push(b);
+  if(openCards.length<2)return;
+  const [a,c]=openCards;
+  if(a.dataset.k===c.dataset.k){
+    a.classList.add('done');c.classList.add('done');openCards=[];
+    speak('Gefunden!');
+    if(document.querySelectorAll('.memcard.done').length===memorySize){
+      if(!success())setTimeout(startMemory,1500);
+    }
+  }else{
+    locked=true;speak('Probier es noch einmal.');
+    a.classList.add('wrong');c.classList.add('wrong');
+    setTimeout(()=>{
+      [a,c].forEach(x=>{x.classList.remove('open','wrong');x.textContent='?'});
+      openCards=[];locked=false;
+    },950);
+  }
+}
+
+/* Monster-Truck-Belohnungen */
+function rewardKey(r){return 'mt-'+r.id}
+function showReward(){
+  if(!monsterTrucks.length)return;
+  let pool=monsterTrucks.filter(r=>!owned.includes(rewardKey(r)));
+  if(!pool.length)pool=monsterTrucks;
+  const r=pick(pool), key=rewardKey(r);
+  if(!owned.includes(key)){
+    owned.push(key);
+    localStorage.setItem('pre_mt_owned',JSON.stringify(owned));
+  }
+  $('rewardPic').className='rewardpic monstertruck';
+  $('rewardPic').innerHTML=`<div class="mt-hero">🛻</div>`;
+  $('rewardName').innerHTML=`${r.name}<div class="mt-meta">${r.year} · ${r.collection||r.toy||''}</div>`;
+  $('rewardOverlay').hidden=false;
+  speak('Super! Du hast den Monster Truck '+r.name+' gesammelt!');
+}
+$('continueButton').onclick=()=>{
+  $('rewardOverlay').hidden=true;
+  if(mode==='memory')startMemory();else nextQuestion();
+};
+
+function buildAlbumTabs(){
+  const years=[...new Set(monsterTrucks.map(x=>x.year))].sort();
+  const tabs=$('albumTabs');tabs.innerHTML='';
+  years.forEach((year,i)=>{
+    const b=document.createElement('button');
+    b.className='albumtab'+(i===0?' active':'');
+    b.textContent='🏁 '+year;
+    b.onclick=()=>{
+      [...tabs.children].forEach(x=>x.classList.toggle('active',x===b));
+      activeAlbumYear=year;
+      renderAlbum(year);
+      speak('Monster Trucks aus '+year+'.');
+    };
+    tabs.appendChild(b);
+  });
+  activeAlbumYear=years[0];
+}
+
+$('albumButton').onclick=()=>{
+  show('album');
+  if(!$('albumTabs').children.length)buildAlbumTabs();
+  renderAlbum(activeAlbumYear);
+  speak('Dein Monster Truck Sammelalbum.');
+};
+
+function renderAlbum(year){
+  const w=$('albumGrid');w.innerHTML='';
+  monsterTrucks.filter(r=>r.year===year).forEach(r=>{
+    const got=owned.includes(rewardKey(r)),
+          d=document.createElement('div');
+    d.className='albumcard'+(got?'':' locked');
+    d.innerHTML=`
+      <div class="pic monsterpic">${got?'':'❓'}</div>
+      <div class="name">${got?r.name:'Noch nicht gesammelt'}</div>
+      <div class="year">${got?(r.toy||'')+' · '+(r.collection||''):year}</div>`;
+    w.appendChild(d);
+  });
+}
+
+loadData().then(()=>{
+  show('home');
+  setTimeout(()=>speak('Was möchtest du spielen?'),500);
+}).catch(()=>{
+  show('home');
+  setTimeout(()=>speak('Was möchtest du spielen?'),500);
+});
+</script>
+<script>if('serviceWorker'in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(()=>{}))}</script>
+</body>
+</html>
