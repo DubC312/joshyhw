@@ -60,6 +60,8 @@ button{font:inherit;touch-action:manipulation}.app{max-width:960px;margin:auto}.
 .albumcard .year{font-size:13px;font-weight:800;color:#6f7180;margin-top:3px}
 .sourcehint{font-size:12px;color:#73788b;text-align:center;margin-top:10px}
 
+
+.rewardpic.monstertruck img,.albumcard .pic.monsterpic img{width:100%;height:100%;object-fit:contain;display:block;position:relative;z-index:2}
 </style>
 </head>
 <body>
@@ -103,6 +105,9 @@ const $=id=>document.getElementById(id),
 let mode='colors', solved=0, lastSpeech='', current=null,
     memorySize=6, openCards=[], locked=false;
 let monsterTrucks=[], carBrands=[], activeAlbumYear=null;
+function parseJsonLines(text){
+ return text.split(/\r?\n/).map(x=>x.trim()).filter(Boolean).map(x=>JSON.parse(x));
+}
 
 const owned=JSON.parse(localStorage.getItem('pre_mt_owned')||'[]');
 
@@ -113,7 +118,7 @@ const colors=[
 
 async function loadData(){
   const [mt, brands]=await Promise.all([
-    fetch('monster-trucks.json',{cache:'no-store'}).then(r=>r.json()),
+    fetch('monster-trucks.json',{cache:'no-store'}).then(r=>r.text()).then(parseJsonLines),
     fetch('automarken.json',{cache:'no-store'}).then(r=>r.json())
   ]);
   monsterTrucks=mt;
@@ -333,7 +338,9 @@ function showReward(){
     localStorage.setItem('pre_mt_owned',JSON.stringify(owned));
   }
   $('rewardPic').className='rewardpic monstertruck';
-  $('rewardPic').innerHTML=`<div class="mt-hero">🛻</div>`;
+  $('rewardPic').innerHTML=r.image
+ ? `<img src="${r.image}" alt="${r.name}" referrerpolicy="no-referrer" onerror="this.remove();this.parentElement.innerHTML='<div class=&quot;mt-hero&quot;>🛻</div>'">`
+ : `<div class="mt-hero">🛻</div>`;
   $('rewardName').innerHTML=`${r.name}<div class="mt-meta">${r.year} · ${r.collection||r.toy||''}</div>`;
   $('rewardOverlay').hidden=false;
   speak('Super! Du hast den Monster Truck '+r.name+' gesammelt!');
@@ -375,7 +382,7 @@ function renderAlbum(year){
           d=document.createElement('div');
     d.className='albumcard'+(got?'':' locked');
     d.innerHTML=`
-      <div class="pic monsterpic">${got?'':'❓'}</div>
+      <div class="pic monsterpic">${got?(r.image?`<img src="${r.image}" alt="${r.name}" referrerpolicy="no-referrer" onerror="this.style.display='none'">`:'🛻'):'❓'}</div>
       <div class="name">${got?r.name:'Noch nicht gesammelt'}</div>
       <div class="year">${got?(r.toy||'')+' · '+(r.collection||''):year}</div>`;
     w.appendChild(d);
